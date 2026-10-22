@@ -16,7 +16,7 @@ export default async (request) => {
     if (body.product !== "grow-easy-kit-bundle") return json({ error: "Invalid product." }, 400);
 
     // Price is fixed server-side; never trust a price sent by the browser.
-    const amount = 9900; // ₹99.00 in paise
+    const amount = 100; // ₹99.00 in paise
     const receipt = `gek_${randomUUID().replaceAll("-", "").slice(0, 24)}`;
     const auth = Buffer.from(`${keyId}:${keySecret}`).toString("base64");
     const response = await fetch("https://api.razorpay.com/v1/orders", {
