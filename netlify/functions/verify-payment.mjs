@@ -39,7 +39,7 @@ export default async (request) => {
     });
     const payment = await paymentResponse.json();
     if (!paymentResponse.ok) return json({ error: "Could not confirm payment status with Razorpay." }, 502);
-    if (payment.order_id !== orderId || payment.status !== "captured" || payment.amount !== 100 || payment.currency !== "INR") {
+    if (payment.order_id !== orderId || payment.status !== "captured" || payment.amount !== 9900 || payment.currency !== "INR") {
       return json({ error: "Payment is not captured for the expected ₹99 order yet." }, 402);
     }
 
